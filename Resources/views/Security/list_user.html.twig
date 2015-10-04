@@ -1,10 +1,8 @@
 {% extends 'ZephyrAdminCoreBundle::layout.html.twig'%}
 
-{% block stylesheets_admin %}
-{{ parent() }}
-	{% stylesheets '@ZephyrAdminCoreBundle/Resources/public/css/liste_user.css' filter='cssrewrite'  package='assetic' %}
-		<link rel="stylesheet" href="{{ asset_url }}" />
-	{% endstylesheets %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/zephyradmincore/css/liste_user.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block javascripts %}

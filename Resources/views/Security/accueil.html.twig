@@ -34,23 +34,4 @@
 	{% endfor %}
 	
 	<div class="clearfix"></div>
-<!--
-	{% for mod in module %}
-		{% for m in mod %}
-			{% if m.icone is defined %}
-				<div id="module_lien"><a href="{{ url( m.route )}}">
-					<div id="icone_lien"><i class="glyphicon {{ m.icone }}"></i></div>
-					<div id="nom_lien">{{ m.nom|trans }}</div>
-					</a>
-				</div>
-			{% else %}	
-				<div id="module_lien"><a href="{{ url( m.route )}}">
-					<div id="nom_lien">{{ m.nom|trans }}</div>
-					</a>
-				</div>
-			{% endif%}
-		{% endfor %}	
-	{% endfor %}
-	<div class="clearfix"></div><br>
-	-->
 {% endblock %}

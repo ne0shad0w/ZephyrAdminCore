@@ -1,53 +1,50 @@
-	{% stylesheets '@ZephyrAdminCoreBundle/Resources/public/menu/css/jquery.mmenu.all.css'
-		'@ZephyrAdminCoreBundle/Resources/public/menu/css/extensions/jquery.mmenu.widescreen.css'
-		'@ZephyrAdminCoreBundle/Resources/public/menu/css/extensions/jquery.mmenu.tileview.css'
-		 filter='cssrewrite'  package='assetic' %}
-		<link rel="stylesheet" href="{{ asset_url }}" />
-	{% endstylesheets %}
-	{% javascripts '@ZephyrAdminCoreBundle/Resources/public/menu/js/fixe.js'
-				'@ZephyrAdminCoreBundle/Resources/public/menu/js/jquery.mmenu.min.all.js'
-				'@ZephyrAdminCoreBundle/Resources/public/menu/js/addons/jquery.mmenu.searchfield.min.js'
-		 package='assetic' %}
-		<script src="{{ asset_url }}" /></script>
-	{% endjavascripts %}
-
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-  
-<script type="text/javascript">
-			$(function() {
-				$('nav#leftmenu').mmenu({
-					extensions	: [ 'widescreen', 'effect-slide-menu',   'border-full','multiline' ],
-					searchfield	: true,
-					counters	: false,
-					navbar 		: {title : 'ACCUEIL'},
-					navbars		: [{
-							position	: 'top',
-							content		: [
-								'<a href="{{ path('user_accueil') }}">{{ 'menu.tableaubord'|trans }}</a>',
-							]},{
-							position	: 'top',
-							content		: [ '<a href="{{ path('zephyr_homepage') }}" target="_blank">{{ 'menu.siteweb'|trans }}</a>' ]
+{% block stylesheets %}
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="{{ asset('bundles/zephyradmincore/menu/css/jquery.mmenu.all.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('bundles/zephyradmincore/menu/css/extensions/jquery.mmenu.widescreen.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('bundles/zephyradmincore/menu/css/extensions/jquery.mmenu.tileview.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block javascripts %}
+	 {{ parent() }}
+     <script src="{{ asset('bundles/zephyradmincore/menu/js/fixe.js') }}"></script>
+     <script src="{{ asset('bundles/zephyradmincore/menu/js/jquery.mmenu.min.all.js') }}"></script>
+     <script src="{{ asset('bundles/zephyradmincore/menu/js/addons/jquery.mmenu.searchfield.min.js') }}"></script>
+	<script type="text/javascript">
+				$(function() {
+					$('nav#leftmenu').mmenu({
+						extensions	: [ 'widescreen', 'effect-slide-menu',   'border-full','multiline' ],
+						searchfield	: true,
+						counters	: false,
+						navbar 		: {title : 'ACCUEIL'},
+						navbars		: [{
+								position	: 'top',
+								content		: [
+									'<a href="{{ path('user_accueil') }}">{{ 'menu.tableaubord'|trans }}</a>',
+								]},{
+								position	: 'top',
+								content		: [ '<a href="{{ path('zephyr_homepage') }}" target="_blank">{{ 'menu.siteweb'|trans }}</a>' ]
+								},{
+								position	: 'top',
+								content		: ['prev','title','close']
 							},{
-							position	: 'top',
-							content		: ['prev','title','close']
-						},{
-							position	: 'bottom',
-							content		: [
-								'<a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'fr'}) ) }}"><span class="flag-icon flag-icon-ca"></span></a><a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'en'}) ) }}"><span class="flag-icon flag-icon-us"></span></a><a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'ru'}) ) }}"><span class="flag-icon flag-icon-ru"></span></a>'
-							]},{
-							position	: 'bottom',
-							content		: ['<a href="{{ path('fos_user_security_logout') }}">{{ 'menu.deco'|trans }}</a>']
-						},{
-							position	: 'bottom',
-							content		: [ 'searchfield' ]
-						}
-						
-						
-						]
+								position	: 'bottom',
+								content		: [
+									'<a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'fr'}) ) }}"><span class="flag-icon flag-icon-ca"></span></a><a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'en'}) ) }}"><span class="flag-icon flag-icon-us"></span></a><a href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')|merge({'_locale':'ru'}) ) }}"><span class="flag-icon flag-icon-ru"></span></a>'
+								]},{
+								position	: 'bottom',
+								content		: ['<a href="{{ path('fos_user_security_logout') }}">{{ 'menu.deco'|trans }}</a>']
+							},{
+								position	: 'bottom',
+								content		: [ 'searchfield' ]
+							}
+							
+							
+							]
+					});
 				});
-			});
-</script>
+	</script>
+	 
+{% endblock %}
 
 {% block leftmenu %}
 	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
