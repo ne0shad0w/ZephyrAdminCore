@@ -6,11 +6,44 @@
             "name": "test"
         }
     ],
+    "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-          "php": ">=5.3.0"
-    }
-    ,
+        "jms/i18n-routing-bundle": "dev-master",
+        "lexik/translation-bundle": "~2.0",
+        "doctrine/common": "<2.5",
+        "leafo/lessphp": "dev-master",
+        "jms/translation-bundle": "dev-master",
+        "symfony/symfony": "2.8.*",
+        "stfalcon/tinymce-bundle": "dev-master",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "helios-ag/fm-elfinder-bundle": "2.x",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~3.0.12",
+        "sensio/framework-extra-bundle": "~3.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "knplabs/knp-menu": "~2.0",
+        "knplabs/knp-menu-bundle": "2.0",
+        "braincrafted/bootstrap-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "twbs/bootstrap": "~3.3",
+        "mopa/bootstrap-bundle": "dev-master",
+        "craue/formflow-bundle": "~2.0",
+        "jquery/jquery": "1.9.*",
+        "doctrine/couchdb-odm-bundle": "dev-master",
+        "jms/di-extra-bundle": "dev-master",
+        "a2lix/translation-form-bundle": "^2.0@dev",
+        "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
+        "a2lix/i18n-doctrine-bundle" : "0.x-dev"
+    },
+    "require-dev": {
+        "symfony/assetic-bundle": "master",
+        "sensio/generator-bundle": "~2.3"
+    },
      "autoload": {
           "psr-4": {
               "ne0shad0w\\ZephyrAdminCoreBundle\\ZephyrAdminCoreBundle\\" : ""
