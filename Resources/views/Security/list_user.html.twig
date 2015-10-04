@@ -1,0 +1,74 @@
+{% extends 'ZephyrAdminCoreBundle::layout.html.twig'%}
+
+{% block stylesheets_admin %}
+{{ parent() }}
+	{% stylesheets '@ZephyrAdminCoreBundle/Resources/public/css/liste_user.css' filter='cssrewrite'  package='assetic' %}
+		<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block body %}
+<div id="liste_user">
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th>{{ 'user.username'|trans }}</th>
+			<th>{{ 'user.enable'|trans }}</th>
+			<th>{{ 'user.locked'|trans }}</th>
+			<th>{{ 'user.admin'|trans }}</th>
+			<th>Action</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for user in users %}
+		{% set rnb = 0 %}
+			<tr class="{% if not user.enabled %} danger{% endif %}">
+				<td><a href="{{ url('adm_profile_other',{'username': user.username }) }}">{{ user.username }}</a></td>
+				<td> 
+						{% if user.enabled %} 
+							{{ 'yes'|trans }}
+						{% else %} 
+							{{ 'no'|trans }}
+						{% endif %}
+						
+					
+				</td>		
+				<td> {% if ("ROLE_SUPER_ADMIN" not in user.roles) and (user.id != id_current)  %}
+				 	<div class="onoffswitch">
+						{% if user.locked %} 
+							<input type="checkbox" onclick="document.location.href='{{ path('adm_desactive_user',{'username': user.username }) }}'" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch_a_{{user.id}}" checked>
+						{% else %} 
+							<input type="checkbox" onclick="document.location.href='{{ path('adm_active_user',{'username': user.username }) }}'" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch_a_{{user.id}}" >
+						{% endif %}
+						 <label class="onoffswitch-label" for="myonoffswitch_a_{{user.id}}">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
+					</div>
+					{% endif %}
+				</td>				
+				<td>{% if (user.enabled and "ROLE_SUPER_ADMIN" not in user.roles) and (user.id != id_current) %}   
+				 	<div class="onoffswitch">
+						{% if "ROLE_ADMIN" not in user.roles %} 
+							<input type="checkbox" onclick="document.location.href='{{ path('adm_promote_user',{'username': user.username }) }}'" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch_{{user.id}}" >
+						{% else %} 
+							<input type="checkbox" onclick="document.location.href='{{ path('adm_demote_user',{'username': user.username }) }}'" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch_{{user.id}}" checked>
+						{% endif %}
+						 <label class="onoffswitch-label" for="myonoffswitch_{{user.id}}">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
+					</div>
+					{% endif %} 
+				</td>
+				<td>{% if ("ROLE_SUPER_ADMIN" not in user.roles) and (user.id != id_current) %}<a href="{{ url('adm_effacer_user',{'username' : user.username }) }}" onclick="return confirm('Désirez-vous effacer cette utilisateur ?');">Supprimer</a>{% endif %}</td>				
+			</tr>
+			
+		{% endfor %}
+		</tbody>
+	</table>	
+</div>
+{% endblock %}

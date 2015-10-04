@@ -1,0 +1,56 @@
+{% extends 'ZephyrAdminCoreBundle::layout.html.twig'%}
+
+{% block stylesheets %}
+{{parent()}}
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+{% if app.session.flashbag.get('notice') %}
+	<div style="padding: 0 0 10px 0 !important;">
+		{% for flashMessage in app.session.flashbag.get('notice') %}
+			{{ flashMessage }}
+		{% endfor %}
+	</div>
+{% endif %}
+<div id="dashboard_entete"><h2>{{ 'administration.accueil.bienvenue'|trans }}</h2></div>
+
+
+	{% for dmod in dashboard_module %}
+		{% for dm in dmod %}
+			{% if dm.titre is defined %}
+				<div id="dashboard_entete" style="margin:20px 0;"><h2>{{dm.titre}}</h2></div>
+			{% endif %}
+			{% if dm.type == 'render' %}	
+			 	{{ render(controller(dm.html ) ) }}  
+			{% else %}
+				{% include dm.html  %}
+			{% endif %}	
+		{% endfor %}	
+	{% endfor %}
+	
+	<div class="clearfix"></div>
+<!--
+	{% for mod in module %}
+		{% for m in mod %}
+			{% if m.icone is defined %}
+				<div id="module_lien"><a href="{{ url( m.route )}}">
+					<div id="icone_lien"><i class="glyphicon {{ m.icone }}"></i></div>
+					<div id="nom_lien">{{ m.nom|trans }}</div>
+					</a>
+				</div>
+			{% else %}	
+				<div id="module_lien"><a href="{{ url( m.route )}}">
+					<div id="nom_lien">{{ m.nom|trans }}</div>
+					</a>
+				</div>
+			{% endif%}
+		{% endfor %}	
+	{% endfor %}
+	<div class="clearfix"></div><br>
+	-->
+{% endblock %}

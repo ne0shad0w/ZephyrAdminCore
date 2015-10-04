@@ -1,0 +1,6 @@
+{% for page in chemin %}
+    <a href="">
+        {{ page.titre }}
+    </a>
+{% endfor %}
+<br><a href="{{ path('adm_accueil') }}">{{ 'admin'|trans }}</a>{{ 'sep_chemin'|trans }}<a href="{{ path('adm_gestionpage') }}">{{ 'listepage'|trans}}</a>{{ 'sep_chemin'|trans }}{{ 'Page'|trans }} {{ pages.nomPage }}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+     <title>{% block title %}Administration{% endblock %}</title>
+     <meta charset="utf-8">
+	 {% if app.request.attributes.get('_route') %}
+	 <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" /> 
+	 {% endif %}
+     <link rel="shortcut icon" href="{{ asset('bundles/sturbain/images/favicon.ico') }}" />	 
+     
+	 <link rel="stylesheet" href="{{ asset('css/flags.css') }}" type="text/css" media="screen" />
+
+	 <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}" type="text/css" media="screen" />
+	 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" media="screen" />
+		 
+	 {% block stylesheets %}{% endblock %}
+     {% block stylesheets_admin %}{% endblock %}
+	{% stylesheets '@ZephyrAdminCoreBundle/Resources/public/css/app/*.css' filter='uglifycss'  package='assetic' %}
+		<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	 
+	 
+     <script src="{{ asset('js/jquery.js') }}"></script>
+     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+     <script src="{{ asset('bundles/front/js/jquery-migrate-1.1.1.js') }}"></script>
+	 
+	 
+     <!--[if (gt IE 9)|!(IE)]><!-->
+     	<script src="{{ asset('js/jquery.mobile.customized.min.js') }}"></script>
+     <!--<![endif]-->
+
+      <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+     	<script src="{{ asset('js/html5shiv.js') }}"></script>
+     	<link rel="stylesheet" href="{{ asset('css/ie.css') }}">
+    <![endif]-->
+	<!-- <link rel="stylesheet" href="{{ asset('bundles/sturbain/css/sturbain.css') }}" type="text/css" media="screen" /> -->
+	 {% block javascripts %}{% endblock %}
+
+     </head>
+     <noscript>
+	 <div style="width:100%;height:40px;background-color:#ffff90;z-index:999999;position:relative;text-align:center;color:#000;">
+		<b>JavaScript semble être désactivé dans votre navigateur.</b>
+		<br>
+		Vous devez avoir JavaScript activé dans votre navigateur pour utiliser toutes les fonctionnalités de ce site.
+	 </div>
+	 </noscript>
+<body class="page1" id="top">
+<div id="page">	
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	
+	{% block leftmenu %}{{ include('ZephyrAdminCoreBundle:Default:menu_left.html.twig') }}{% endblock leftmenu %} 
+	
+{% endif %}
+
+		<div class="header navbar-fixed-top">
+				<div>
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						<a id="brand" href="#leftmenu"></a>
+						<p>Administration</p>
+					{% else %}
+						<p>{{ 'connexion'|trans }}</p>
+					{% endif %}
+					
+				</div>		
+			</div>
+			<div class="content">
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<div id="chemin" style="text-align:left; width:100%; heigth:30px;">{{ chemin(app.request.attributes.get('_route') , app.request.get('_route_params'))|raw }}</div>
+			{% endif %}
+					{% for label, flashes in app.session.flashbag.all %}
+						{% set nb = 0 %}
+						<div class="flash flash_{{label}}">
+						{% for flash in flashes %}
+							{% if nb == 1 %}<br>{% endif %}
+								{{ flash }}
+							{% set nb = 1 %}
+						{% endfor %}
+						</div>
+					{% endfor %}
+
+					{% block fos_user_content %}{% endblock %}
+					{% block body_admin %}{% endblock %}
+					{% block body_site %}{% endblock %}	
+				
+			</div>
+		{% if app.request.attributes.get('_route') %}
+
+			<div class="footer">
+				{% block footer %}Réalisé par Zéphyr Médias © 2015 | Tous droits réservés{% endblock %}
+			</div>
+		{% endif %}
+</div>
+
+</body>
+</html>
+

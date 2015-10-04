@@ -1,0 +1,14 @@
+.fos_user_registration_register_submit {
+	width:100%;
+	text-align:center;
+	padding-top:20px;
+}
+#body_user_content{ padding:20px; }
+.form-group { height:30px; }
+
+fieldset > legend {
+	margin:20px 0 20px 0;	
+	font-size:26px;
+	width:100%;
+	text-align:center;
+}

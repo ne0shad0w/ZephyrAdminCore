@@ -1,0 +1,68 @@
+
+redirection_adm:
+    path:   /admin/dashboard
+    defaults:  
+        _controller: FrameworkBundle:Redirect:redirect 
+        route: user_accueil
+        permanent: true
+
+user_accueil:
+    path:   /tableauDeBord
+    defaults:  { _controller: ZephyrAdminCoreBundle:Default:index }
+
+user_dispatch:
+    path:   /user/check
+    defaults:  { _controller: ZephyrAdminCoreBundle:User:dispatch }
+
+adm_accueil:
+    path:   /admin/dashboard
+    defaults:  { _controller: ZephyrAdminCoreBundle:Default:index }
+
+adm_list_user:
+    path:   /admin/dashboard/list_user
+    defaults:  { _controller: ZephyrAdminCoreBundle:Default:listuser }
+
+adm_promote_user:
+    path:   /admin/dashboard/promote_user/{username}
+    defaults:  { _controller: ZephyrAdminCoreBundle:User:promote }
+
+adm_demote_user:
+    path:   /admin/dashboard/demote_user/{username}
+    defaults:  { _controller: ZephyrAdminCoreBundle:User:demote }
+
+adm_active_user:
+    path:   /admin/dashboard/active_user/{username}
+    defaults:  { _controller: ZephyrAdminCoreBundle:User:active }
+
+adm_desactive_user:
+    path:   /admin/dashboard/desactive_user/{username}
+    defaults:  { _controller: ZephyrAdminCoreBundle:User:desactive }
+
+adm_clear_cache:
+    path:   /admin/cache/clear
+    defaults:  { _controller: ZephyrAdminCoreBundle:Default:cacheClear }
+
+adm_profile_other:
+    path:   /profile/other/{username}
+    defaults:  { _controller: ZephyrAdminCoreBundle:Profile:show }
+
+adm_effacer_user:
+    path:   /admin/dashboard/del_user/{username}
+    defaults:   { _controller: ZephyrAdminCoreBundle:User:delete }
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+lexik_translation_edition:
+    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
+    prefix:   /admin/traducteur
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting

@@ -1,0 +1,49 @@
+/* CSS Document */
+#tab_section #class , #style {
+	min-width:200px;	
+}
+#tab_section #position {
+	min-width:80px;	
+}
+
+#tab_section #nom  {
+	min-width:300px;	
+}
+.correct{
+	color:#0C6 !important;	
+	
+}
+
+.error{
+	color:#F00 !important;	
+	
+}
+
+#tab_section td img { float:right; }
+
+.editable{
+	padding:5px;
+	min-width:100px;
+}
+
+#form_nomSection { margin: 0 15px 0 0 ;}
+.champ_nomsection_text {width:350px;}
+label[for='form_nomSection'] { width:200px; float:left; margin: 0 10px 0 0 ;}
+form[name=form] .form_row { min-width:700px;}
+
+.champ_nomcolonne_text {width:350px;}
+label[for='form_nomColonne'] { width:200px; float:left; margin: 0 10px 0 0 ;}
+
+.editable:focus{
+	border:1px solid rgba(0,0,0,0.5); 
+	
+    -webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px ;
+  	border-radius:  5px;
+
+  	-webkit-box-shadow: 2px 2px 2px #666;
+  	-moz-box-shadow: 2px 2px 2px #666;
+  	-ms-box-shadow: 2px 2px 2px #666;
+  	-o-box-shadow: 2px 2px 2px #666;
+  	box-shadow: 2px 2px 2px #666;
+}

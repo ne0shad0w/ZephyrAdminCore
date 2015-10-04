@@ -1,0 +1,17 @@
+{#
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			<style>body{padding-top:50px !important;}</style>
+			{% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true } %}	
+	{% block headerAdmin %}
+		{% block menu %}
+				
+				{% if is_granted('ROLE_ADMIN') %}
+						{{ mopa_bootstrap_menu('admin') }} 
+				{% endif %}	 
+				{{ mopa_bootstrap_menu('user') }}
+		{% endblock %}
+	{% endblock %}			
+			{% endembed %}
+{% endif %}
+#}

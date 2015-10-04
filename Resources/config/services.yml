@@ -1,0 +1,29 @@
+services:
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension
+
+    ZephyrAdminCoreBundleMenu.builder:
+        class: ZephyrAdminCoreBundle\Menu\Builder
+        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager","@service_container" ,"@translator"]
+
+    ZephyrAdminCoreBundleMenu.menu.user:
+        class: KnpMenuMenuItem
+        factory_service: CoreBundleMenu.builder
+        factory_method: createUserMenu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: user } # L'alias est très important, c'est avec lui que vous appellerez votre menu dans la vue
+
+    ZephyrAdminCoreBundle.cache.clear:
+        class: Symfony\Bundle\FrameworkBundle\Command\CacheClearCommand
+        calls:
+            - [setContainer, ["@service_container"] ]
+
+    twig.chemin_extension:
+        class: ZephyrAdminCoreBundle\Twig\AppExtension
+        arguments: ["@router","@translator","@controller_name_converter","@doctrine.orm.entity_manager"]
+        tags:
+            - name: twig.extension

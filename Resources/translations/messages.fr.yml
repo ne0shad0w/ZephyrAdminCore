@@ -1,0 +1,49 @@
+administration:
+     accueil:
+         bienvenue: Tableau de bord
+     document:
+         entete: Gestion des documents
+     promotion:
+         reussi: L'utilisateur %s est maintenant administrateur.
+     demote:
+         reussi: L'utilisateur %s a été dégradé.
+     blocked:
+         reussi: L'utilisateur %s a été bloqué.
+     unblocked:
+         reussi: L'utilisateur %s a été débloqué.
+     delete:
+         reussi: L'utilisateur %s a été effacé.
+         echec: Une erreur est survenue lors de la suppression de l'utilisateur %s 
+     profile:
+         edit: Modifier mon compte
+user:
+     username: Nom d'utilisateur
+     role: Rôles
+     enable: Actif
+     yes: Oui
+     no: Non
+     admin: Administrateur
+     locked: Bloqué
+
+connexion: "Connexion"
+gestionUtilisateurs : "Gestion des utilisateurs"
+gestionFichier : "Gestion des fichiers"
+gestionPages : "Gestion des pages"
+gestionCSS : "Gestion CSS"
+gestionDocument : "Gestion des documents"
+gestionLiens : "Gestion des Liens"
+viderCache : "Vider Cache"
+
+utilisateurs: "Utilisateurs"
+listeUtilisateurs : "Liste des utilisateurs"
+ajoutUtilisateurs : "Ajouter un utilisateur"
+modules : "Modules"
+
+menu:
+     modifier: "Info du compte"
+     compte: "Mon Compte"
+     siteweb: "Site Internet"
+     deco: "Déconnexion"
+     tableaubord: "Tableau de bord"
+user_accueil : "Tableau de bord"
+"Fos user registration form" : "Nouveau compte"
