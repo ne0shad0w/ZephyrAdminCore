@@ -32,8 +32,7 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "twbs/bootstrap": "~3.3",
         "mopa/bootstrap-bundle": "dev-master",
-        "craue/formflow-bundle": "~2.0",
-        "jquery/jquery": "1.9.*",
+        "craue/formflow-bundle": "~2.0"
         "doctrine/couchdb-odm-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "^2.0@dev",
