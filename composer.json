@@ -36,8 +36,7 @@
         "doctrine/couchdb-odm-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "^2.0@dev",
-        "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
-        "a2lix/i18n-doctrine-bundle" : "master"
+        "friendsofsymfony/jsrouting-bundle": "^2.0@dev"
     },
     "require-dev": {
         "symfony/assetic-bundle": "master",
