@@ -10,7 +10,7 @@ services:
 
     ZephyrAdminCoreBundleMenu.menu.user:
         class: KnpMenuMenuItem
-        factory_service: CoreBundleMenu.builder
+        factory_service: ZephyrAdminCoreBundleMenu.builder
         factory_method: createUserMenu
         arguments: ["@request"]
         scope: request
