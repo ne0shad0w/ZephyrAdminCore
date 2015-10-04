@@ -37,7 +37,7 @@
         "jms/di-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "^2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
-        "a2lix/i18n-doctrine-bundle" : "dev"
+        "a2lix/i18n-doctrine-bundle" : "master"
     },
     "require-dev": {
         "symfony/assetic-bundle": "master",
