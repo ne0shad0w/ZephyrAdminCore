@@ -1,6 +1,6 @@
 <?php 
 
-namespace ZephyrAdmin\Core\ZephyrAdminCoreBundle ;
+namespace ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle ;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
