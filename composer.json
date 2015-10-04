@@ -35,7 +35,6 @@
         "craue/formflow-bundle": "~2.0",
         "doctrine/couchdb-odm-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
-        "a2lix/translation-form-bundle": "^2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "^2.0@dev"
     },
     "require-dev": {
