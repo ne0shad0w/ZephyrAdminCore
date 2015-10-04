@@ -3,7 +3,7 @@
     "description": "My first Composer project",
     "authors": [
         {
-            "name": "test",
+            "name": "test"
         }
     ],
     "minimum-stability": "dev",
