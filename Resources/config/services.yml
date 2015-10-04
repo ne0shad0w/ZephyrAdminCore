@@ -5,7 +5,7 @@ services:
             - name: twig.extension
 
     ZephyrAdminCoreBundleMenu.builder:
-        class: ZephyrAdminCoreBundle\Menu\Builder
+        class: ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Menu\Builder
         arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager","@service_container" ,"@translator"]
 
     ZephyrAdminCoreBundleMenu.menu.user:
@@ -23,7 +23,7 @@ services:
             - [setContainer, ["@service_container"] ]
 
     twig.chemin_extension:
-        class: ZephyrAdminCoreBundle\Twig\AppExtension
+        class: ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Twig\AppExtension
         arguments: ["@router","@translator","@controller_name_converter","@doctrine.orm.entity_manager"]
         tags:
             - name: twig.extension

@@ -1,5 +1,5 @@
 <?php 
-namespace Core\CoreBundle\Twig;
+namespace ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Twig;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;

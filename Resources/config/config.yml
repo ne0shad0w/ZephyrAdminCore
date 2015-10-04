@@ -50,9 +50,9 @@ assetic:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Core\CoreBundle\Entity\FosUser
+    user_class: ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Entity\FosUser
     from_email:
-        address:        no-reply@zephyrmedias.com
+        address:        no-reply@youremail.com
         sender_name:    webmaster
     resetting:
         token_ttl: 86400
