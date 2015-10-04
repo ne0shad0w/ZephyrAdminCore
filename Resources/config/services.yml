@@ -23,7 +23,7 @@ services:
             - [setContainer, ["@service_container"] ]
 
     twig.chemin_extension:
-        class: ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Twig\AppExtension
+        class: ne0shad0w\ZephyrAdminCoreBundle\ZephyrAdminCoreBundle\Twig\CoreExtension
         arguments: ["@router","@translator","@controller_name_converter","@doctrine.orm.entity_manager"]
         tags:
             - name: twig.extension
