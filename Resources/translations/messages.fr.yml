@@ -27,7 +27,7 @@ user:
 yes : oui
 no : non
 adm_list_user : "Liste des utilisateurs"
-fos_user_registration_register : "Ajout d'un nouvelle utilisateur"
+fos_user_registration_register : "Ajout d'un utilisateur"
 lexik_translation_grid : "Traducteur"
 lexik_translation_new : "Ajout d'une traduction"
 connexion: "Connexion"
@@ -38,7 +38,7 @@ gestionCSS : "Gestion CSS"
 gestionDocument : "Gestion des documents"
 gestionLiens : "Gestion des Liens"
 viderCache : "Vider Cache"
-
+"Forgot password " : "Mot de passe oublié "
 utilisateurs: "Utilisateurs"
 listeUtilisateurs : "Liste des utilisateurs"
 ajoutUtilisateurs : "Ajouter un utilisateur"
