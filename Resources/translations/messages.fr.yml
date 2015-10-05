@@ -24,7 +24,12 @@ user:
      no: Non
      admin: Administrateur
      locked: Bloqué
-
+yes : oui
+no : non
+adm_list_user : "Liste des utilisateurs"
+fos_user_registration_register : "Ajout d'un nouvelle utilisateur"
+lexik_translation_grid : "Traducteur"
+lexik_translation_new : "AJout d'une traduction"
 connexion: "Connexion"
 gestionUtilisateurs : "Gestion des utilisateurs"
 gestionFichier : "Gestion des fichiers"
