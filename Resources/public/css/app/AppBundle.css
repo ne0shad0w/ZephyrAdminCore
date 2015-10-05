@@ -277,7 +277,7 @@ background-color:rgba(51, 204, 255, 0.3)
 @media (min-width: 1199px) {
 	#brand { display:none; }
 	.mm-close  { display:none !important; }
-	#menuleft { margin-top: 50px !important; }
+	#leftmenu { margin-top: 40px !important; }
 	.content {
 		font-size:16px;
 		font-family: 'Vollkorn', serif;
