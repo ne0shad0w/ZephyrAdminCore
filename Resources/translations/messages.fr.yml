@@ -43,7 +43,7 @@ utilisateurs: "Utilisateurs"
 listeUtilisateurs : "Liste des utilisateurs"
 ajoutUtilisateurs : "Ajouter un utilisateur"
 modules : "Modules"
-
+traducteur : "Traducteur"
 menu:
      modifier: "Info du compte"
      compte: "Mon Compte"

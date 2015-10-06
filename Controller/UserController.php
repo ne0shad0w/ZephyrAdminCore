@@ -50,7 +50,7 @@ class UserController extends Controller
 				return $this->redirect( $this->generateUrl('user_accueil') );
 		} 
 		if ( $this->get('security.context')->isGranted('ROLE_USER')) {
-				return $this->redirect( $this->generateUrl('membre_accueil') );
+				return $this->redirect( $this->generateUrl('user_accueil') );
 		} 
 		return $this->redirect( $this->generateUrl('zephyr_homepage') );
 		
