@@ -82,11 +82,11 @@ class DefaultController extends Controller
 
    */
   public function cacheClearAction(Request $request) {
-		$command = $this->container->get('CoreBundle.cache.clear');
+		$command = $this->container->get('ZephyrAdminCoreBundle.cache.clear');
 		$input = new ArgvInput(array('--env=' . $this->container->getParameter('kernel.environment')));
 		$output = new ConsoleOutput();
 		$command->run($input, $output);	
-		$this->get('session')->getFlashBag()->add('notice', 'La cache a bien été vidé. Vos mise à jour sont présentement en ligne.');
+		$this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('cacheClear'));
 		return $this->redirect($this->generateUrl('adm_accueil'));
 	
    }
