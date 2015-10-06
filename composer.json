@@ -15,7 +15,6 @@
         "leafo/lessphp": "dev-master",
         "jms/translation-bundle": "dev-master",
         "symfony/symfony": "2.8.*",
-        "stfalcon/tinymce-bundle": "dev-master",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",

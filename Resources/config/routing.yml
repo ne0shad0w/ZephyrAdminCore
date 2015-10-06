@@ -49,20 +49,3 @@ adm_profile_other:
 adm_effacer_user:
     path:   /admin/dashboard/del_user/{username}
     defaults:   { _controller: ZephyrAdminCoreBundle:User:delete }
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-
-fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
-
-elfinder:
-     resource: "@FMElfinderBundle/Resources/config/routing.yml"
-
-lexik_translation_edition:
-    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
-    prefix:   /admin/traducteur
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
