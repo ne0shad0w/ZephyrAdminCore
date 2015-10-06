@@ -38,7 +38,7 @@
         "symfony/assetic-bundle": "master",
         "sensio/generator-bundle": "~2.3"
     },
-    "suggests": {
+    "suggest": {
         "ne0shad0w/zephyr-membre-bundle" : "dev-master"
      },
      "autoload": {
