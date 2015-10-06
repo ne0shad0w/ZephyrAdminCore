@@ -38,6 +38,9 @@
         "symfony/assetic-bundle": "master",
         "sensio/generator-bundle": "~2.3"
     },
+    "suggests"{
+        "ne0shad0w/zephyr-membre-bundle" : "dev-master"
+     },
      "autoload": {
           "psr-4": {
               "ne0shad0w\\ZephyrAdminCoreBundle\\ZephyrAdminCoreBundle\\" : ""
