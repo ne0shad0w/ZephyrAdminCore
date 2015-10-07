@@ -23,7 +23,7 @@ security:
                 target: fos_user_security_login
             anonymous:    true
             remember_me:
-                 secret:  "%secret%"
+                 key:  "%secret%"
                  lifetime: 86400
                  path:     /
                  domain:   ~
