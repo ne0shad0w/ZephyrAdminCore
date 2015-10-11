@@ -11,7 +11,7 @@ body {
 .form_ajout_page {
 	padding:20px 0 0 0 ;	
 }
-
+.container { max-width:100%;}
 .glyphicon {
    /* font-size: 60px !important;*/
 }

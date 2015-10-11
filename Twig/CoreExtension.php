@@ -23,9 +23,49 @@ class CoreExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFunction ('chemin' , array( $this , 'chemin') ),
+            new \Twig_SimpleFunction ('breadcrumb' , array( $this , 'breadcrumb') ),
 			new \Twig_SimpleFunction ('genereLien' , array( $this , 'genereLien') )
         );
     }
+
+    public function breadcrumb($current , $params)
+    {
+		$routes=array();
+		$coll = $this->generator->getRouteCollection();
+		foreach ( $coll as $name => $route ) {
+			$name = $this->clearName($name);
+			if ( $this->clearRoutes($name) ) $routes[$name] = $route ;
+		}
+		$path = $this->creerPath($path="" , $current , $routes , $params );
+		if ( $current == "zephyr_page")
+			$path = $this->creerPathPage($path , $current , $params);
+			
+		if ( $path != ""){ 
+			if ( $current == "zephyr_page")
+				return $path . " >> " . $this->translator->trans($params['name']);
+			else
+       	 		return $path . " >> " . $this->translator->trans($current);
+		} else 
+		 	return "";
+    }
+
+	public function creerPathPage($path , $current , $params){
+		$page = $this->em->getRepository('PageBundle:PgPage')->findOneByNomPage($params);
+		if ($page) {
+			if (  $page->getPageparent() != NULL ){
+				$parent = $page->getPageparent();
+				$params['name'] = $parent->getNomPage();
+				if ( $parent->getPageparent() != NULL ) 
+					$path = " >> " . $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
+				else
+					$path = $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
+					
+				
+				return $this->creerPathPage($path , $current, $params ) ;
+			}
+		}
+		return $path ;	
+	}
 
     public function chemin($current , $params)
     {
@@ -45,9 +85,10 @@ class CoreExtension extends \Twig_Extension
 	 /*
 	 * @I18nDoctrine
 	 */
-	public function genereLien($route , $params = array() , $titre="" , $class="" , $style="" , $target="_self" , $autre="")
+	public function genereLien($route , $params = array() , $nom = NULL , $titre="" , $class="" , $style="" , $target="_self" , $autre="")
 	{ 
-		return "<a href='".$this->generator->generate($route,$params)."' class='$class' style='$style' target='$target' $autre >". $this->translator->trans($route) ."</a>"; 
+		if ($nom != NULL) { $name = $this->translator->trans($nom); } else { $name = $this->translator->trans($route); }
+		return "<a href='".$this->generator->generate($route,$params)."' class='$class' style='$style' target='$target' $autre >". $name ."</a>"; 
 	}
     public function getName()
     {

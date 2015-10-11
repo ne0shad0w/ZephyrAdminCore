@@ -53,7 +53,7 @@
 			</div>
 			<div class="content">
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<div id="chemin" style="text-align:left; width:100%; heigth:30px;">{{ chemin(app.request.attributes.get('_route') , app.request.get('_route_params'))|raw }}</div>
+					<div id="chemin" style="text-align:left; width:100%; heigth:30px;">{{ chemin(app.request.attributes.get('_route') , app.request.get('_route_params'))|raw }}</div> 
 			{% endif %}
 					{% for label, flashes in app.session.flashbag.all %}
 						{% set nb = 0 %}

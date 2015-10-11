@@ -25,7 +25,6 @@
         "knplabs/knp-menu-bundle": "2.0",
         "braincrafted/bootstrap-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "~2.4",
-        "twbs/bootstrap": ">=3.3",
         "mopa/bootstrap-bundle": "dev-master",
         "craue/formflow-bundle": "~2.0",
         "doctrine/couchdb-odm-bundle": "dev-master",

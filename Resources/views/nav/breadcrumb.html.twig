@@ -1,0 +1,10 @@
+{% block root %}
+{% for item in items %}
+    {% if loop.index > 1 %} &gt; 
+	    {% if not loop.last %}<a href="{{ item.uri }}">{{ item.label }}</a>
+    	{% else %}<span>{{ item.label }}</span>{% endif %}   
+	{% else%}
+		<a href="{{ path('user_accueil') }}">{{ 'menu.tableaubord'|trans }}</a>
+	{% endif %}
+{% endfor %}
+{% endblock root %}

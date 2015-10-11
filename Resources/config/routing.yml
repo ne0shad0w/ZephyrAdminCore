@@ -1,9 +1,3 @@
-zephyr_homepage:
-     pattern: /
-     defaults:
-           _controller: FrameworkBundle:Redirect:redirect
-           route: login
-           permanent: true
 
 redirection_adm:
     path:   /admin/dashboard
