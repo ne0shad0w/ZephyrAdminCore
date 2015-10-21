@@ -11,6 +11,11 @@ use A2lix\I18nDoctrineBundle\Annotation\I18nDoctrine;
 
 class CoreExtension extends \Twig_Extension
 {
+	protected $nbBreadcrumb = 0;
+	protected $maxBreadcrumb = false;
+	protected $MaxAffiche = 8 ;
+
+	
 	public function __construct(Router $generator , TranslatorInterface $translator , $convertir , $em)
   	{
     	$this->generator = $generator;
@@ -41,29 +46,37 @@ class CoreExtension extends \Twig_Extension
 			$path = $this->creerPathPage($path , $current , $params);
 			
 		if ( $path != ""){ 
-			if ( $current == "zephyr_page")
-				return $path . " >> " . $this->translator->trans($params['name']);
-			else
+			if ( $current == "zephyr_page"){
+				$page = $this->em->getRepository('PageBundle:PgPage')->findOneByCanonicalPage($params['name']);
+				return $path . " >> " . $this->translator->trans($page->getNomPage() );
+			}else
        	 		return $path . " >> " . $this->translator->trans($current);
 		} else 
 		 	return "";
     }
 
 	public function creerPathPage($path , $current , $params){
-		$page = $this->em->getRepository('PageBundle:PgPage')->findOneByNomPage($params);
-		if ($page) {
-			if (  $page->getPageparent() != NULL ){
-				$parent = $page->getPageparent();
-				$params['name'] = $parent->getNomPage();
-				if ( $parent->getPageparent() != NULL ) 
-					$path = " >> " . $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
-				else
-					$path = $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
+		$this->nbBreadcrumb++ ;
+			$page = $this->em->getRepository('PageBundle:PgPage')->findOneByCanonicalPage($params);
+			if ($page) {
+				if (  $page->getPageparent() != NULL ){
+					$parent = $page->getPageparent();
+					$params['name'] = $parent->getCanonicalPage();
+					if ( $parent->getPageparent() != NULL ) {
+						if ( $this->nbBreadcrumb < $this->MaxAffiche )
+							$path = " >> " . $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
+						else
+							$this->maxBreadcrumb = true;
+					} else {
+						if ( $this->maxBreadcrumb )
+							$path = $this->genereLien($current, $params , $parent->getNomPage() ) . " >> ... " . $path ;
+						else
+							$path = $this->genereLien($current, $params , $parent->getNomPage() ) . $path ;
+					}
 					
-				
-				return $this->creerPathPage($path , $current, $params ) ;
+					return $this->creerPathPage($path , $current, $params ) ;
+				}
 			}
-		}
 		return $path ;	
 	}
 
@@ -97,6 +110,7 @@ class CoreExtension extends \Twig_Extension
 	
 	private function creerPath($path, $current , $routes , $paramCurrent = array()) 
 	{
+	//	$this->nbBreadcrumb++ ;
 		$params= array();
 		if ( isset($routes[$current]) ) {
 			if ( $routes[$current]->getDefaults() )
@@ -129,7 +143,10 @@ class CoreExtension extends \Twig_Extension
 						}
 					}
 				}
-				$path = " >> " . $this->genereLien($exp[0], $params) . $path ;
+			//	if ( $this->nbBreadcrumb < $this->MaxAffiche )
+					$path = " >> " . $this->genereLien($exp[0], $params) . $path ;
+			//	else
+			//		$this->maxBreadcrumb = true;
 				return $this->creerPath($path , $exp[0] , $routes ,$paramCurrent) ;
 			}
 		}

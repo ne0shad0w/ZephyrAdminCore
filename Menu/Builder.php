@@ -85,7 +85,7 @@ class Builder extends ContainerAware
 
 	public function createSubMenu($menu_module , $submenu  ){
 		foreach($submenu as $arr){
-				if ( $this->container->get('security.context')->isGranted('ROLE_ADMIN') || $arr['user'] == true ) {
+				if ( ($this->container->get('security.context')->isGranted('ROLE_ADMIN') || $arr['user'] === true) && $this->checkDroit($arr) === true ) {
 					$route = $arr['route'];
 					if ( !is_array($route) ) {
 						$menu_module->addChild($this->translator->trans($arr['titre']),array('route' => $arr['route']));  
@@ -97,6 +97,15 @@ class Builder extends ContainerAware
 				}
 			}
 		return $menu_module	 ;
+	}
+	
+	private function checkDroit($mod){
+		if ( isset($mod['superadmin']) ) {
+			if ( !$this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN') && $mod['superadmin'] === true ){
+				return false ;
+			}
+		}
+		return true;	
 	}
 
 }

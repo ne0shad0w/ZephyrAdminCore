@@ -38,6 +38,7 @@ twig:
     globals:
 #       color: '["000000","Noir","13a0d5","Bleu ciel","d0d0d0","Gris pâle"]'
        language: %language%
+       theme : %front_theme%
 
 knp_menu:
     twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer

@@ -1,19 +1,22 @@
 /* CSS Document */
 #tab_section #class , #style {
-	min-width:200px;	
+	min-width:150px;	
 }
 #tab_section #position {
 	min-width:80px;	
 }
 
 #tab_section #nom  {
-	min-width:300px;	
+	min-width:200px;	
 }
 .correct{
 	color:#0C6 !important;	
 	
 }
-
+#action {
+	min-width:150px;	
+	
+}
 .error{
 	color:#F00 !important;	
 	
