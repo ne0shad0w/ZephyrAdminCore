@@ -21,6 +21,9 @@ body {
 .flash_attention{color:#F93 !important;}
 .flash_notice{color:#666 !important;}
 
+#fos_user_profile_form { text-align:center !important; max-width:400px !important; margin:0 auto 20px auto;}
+#fos_user_profile_form > .form-group { text-align:center; max-width:400px !important; margin:0 !important} 
+
 
 #dashboard_entete { width:100%; text-align:center;}
 #module_lien { width:150px; float:left; margin:10px;}
