@@ -14,7 +14,7 @@
         "doctrine/common": "<2.5",
         "leafo/lessphp": "dev-master",
         "jms/translation-bundle": "dev-master",
-        "symfony/symfony": "2.7.*",
+        "symfony/symfony": "3.0.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
