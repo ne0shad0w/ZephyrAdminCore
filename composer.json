@@ -9,7 +9,6 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "jms/i18n-routing-bundle": "dev-master",
         "lexik/translation-bundle": "~2.0",
         "symfony/symfony": "3.0.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
@@ -19,7 +18,6 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "craue/formflow-bundle": "~2.0",
         "doctrine/couchdb-odm-bundle": "dev-master",
-        "jms/di-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "^2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
         "a2lix/i18n-doctrine-bundle" : "0.x-dev"
