@@ -11,15 +11,8 @@
     "require": {
         "jms/i18n-routing-bundle": "dev-master",
         "lexik/translation-bundle": "~2.0",
-        "doctrine/common": "<2.5",
-        "leafo/lessphp": "dev-master",
         "jms/translation-bundle": "dev-master",
         "symfony/symfony": "3.0.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
-        "twig/extensions": "~1.0",
-        "helios-ag/fm-elfinder-bundle": "2.x",
-        "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "knplabs/knp-menu": "~2.0",
         "knplabs/knp-menu-bundle": "2.0",
@@ -32,10 +25,6 @@
         "a2lix/translation-form-bundle": "^2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
         "a2lix/i18n-doctrine-bundle" : "0.x-dev"
-    },
-    "require-dev": {
-        "symfony/assetic-bundle": "master",
-        "sensio/generator-bundle": "~2.3"
     },
     "suggest": {
         "ne0shad0w/zephyr-membre-bundle" : "dev-master"
