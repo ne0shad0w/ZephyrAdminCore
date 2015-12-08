@@ -9,7 +9,6 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "lexik/translation-bundle": "master",
         "symfony/symfony": "3.0.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "a2lix/translation-form-bundle": "^2.0@dev",
